@@ -1,13 +1,18 @@
-﻿// Запрашиваем у пользователя число
-Console.WriteLine("Введите число:");
-int num = int.Parse(Console.ReadLine());
+﻿Console.WriteLine("Введите цифру, обозначающую день недели (1-7): ");
+int dayOfWeek = int.Parse(Console.ReadLine());
 
-// Проверяем, является ли число чётным
-if (num % 2 == 0)
+if (dayOfWeek < 1 || dayOfWeek > 7)
 {
-    Console.WriteLine("Число чётное");
+    Console.WriteLine("Неверное число!");
 }
 else
 {
-    Console.WriteLine("Число нечётное");
+    if (dayOfWeek == 6 || dayOfWeek == 7)
+    {
+        Console.WriteLine("Это выходной день!");
+    }
+    else
+    {
+        Console.WriteLine("Это рабочий день!");
+    }
 }
