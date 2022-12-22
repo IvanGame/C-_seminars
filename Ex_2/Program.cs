@@ -1,29 +1,12 @@
-﻿Console.WriteLine("Введите число: ");
-int number = int.Parse(Console.ReadLine());
+﻿Console.WriteLine("Введите координаты первой точки (x, y, z):");
+double x1 = double.Parse(Console.ReadLine()!);
+double y1 = double.Parse(Console.ReadLine()!);
+double z1 = double.Parse(Console.ReadLine()!);
 
-if (number < 100)
-{
-    Console.WriteLine("У введенного числа нет третьей цифры!");
-}
-else if (number > 100000)
-{
-    Console.WriteLine("Число больше положенного диапазона. Ввкдите число до 100000");
-}
-else
-{
-    if(number > 99 && number < 1000)
-    {
-        int thirdDigit = number % 10;
-        Console.WriteLine($"Третья цифра введенного числа: {thirdDigit}");
-    }
-    else if (number > 999 && number < 10000)
-    {
-        int thirdDigit = number / 10 % 10;
-        Console.WriteLine($"Третья цифра введенного числа: {thirdDigit}");
-    }
-    else
-    {
-        int thirdDigit = number / 100 % 10;
-        Console.WriteLine($"Третья цифра введенного числа: {thirdDigit}");
-    }
-}
+Console.WriteLine("Введите координаты второй точки (x, y, z):");
+double x2 = double.Parse(Console.ReadLine()!);
+double y2 = double.Parse(Console.ReadLine()!);
+double z2 = double.Parse(Console.ReadLine()!);
+
+double distance = Math.Round(Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2) + Math.Pow(z2 - z1, 2)), 2);
+Console.WriteLine("Расстояние между двумя точками: " + distance);
