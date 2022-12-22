@@ -1,18 +1,8 @@
-﻿Console.WriteLine("Введите цифру, обозначающую день недели (1-7): ");
-int dayOfWeek = int.Parse(Console.ReadLine());
+﻿Console.WriteLine("Введите число:");
+int n = int.Parse(Console.ReadLine()!);
 
-if (dayOfWeek < 1 || dayOfWeek > 7)
+Console.WriteLine("Число\tКуб");
+for (int i = 1; i <= n; i++)
 {
-    Console.WriteLine("Неверное число!");
-}
-else
-{
-    if (dayOfWeek == 6 || dayOfWeek == 7)
-    {
-        Console.WriteLine("Это выходной день!");
-    }
-    else
-    {
-        Console.WriteLine("Это рабочий день!");
-    }
+    Console.WriteLine("{0}\t{1}", i, i * i * i);
 }
