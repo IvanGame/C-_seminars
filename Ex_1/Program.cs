@@ -1,20 +1,26 @@
-﻿int RaiseToPower(int baseNum, int exponent)
+﻿int evenCount(int[] array)
 {
-    int result = 1;
-    for (int i = 0; i < exponent; i++)
-    {
-        result *= baseNum;
-    }
-    return result;
+    int evenCount = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] % 2 == 0)
+            {
+                evenCount++;
+            }
+        }
+    return evenCount;
 }
 
-int A, B;
+int[] getArray()
+{
+    int[] array = new int[10];
+    Random rnd = new Random();
 
-Console.Write("Введите A: ");
-A = int.Parse(Console.ReadLine());
+    for (int i = 0; i < array.Length; i++)
+    {
+        array[i] = rnd.Next(100, 1000);
+    }
+    return array;
+}
 
-Console.Write("Введите B: ");
-B = int.Parse(Console.ReadLine());
-
-int result = RaiseToPower(A, B);
-Console.WriteLine("Результат: " + result);
+Console.WriteLine("Колличество чётных чисел: " + evenCount(getArray()));

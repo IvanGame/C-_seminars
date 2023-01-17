@@ -1,15 +1,26 @@
-﻿int SumOfDigits(int num)
+﻿
+int[] getArray()
+{
+    int[] array = new int[10];
+    Random rnd = new Random();
+
+    for (int i = 0; i < array.Length; i++)
+    {
+        array[i] = rnd.Next(1, 101);
+    }
+    return array;
+}
+
+int oddSum(int[] array)
 {
     int sum = 0;
-    while (num > 0)
+
+    for (int i = 0; i < arr.Length; i++)
     {
-        sum += num % 10;
-        num /= 10;
+        if (i % 2 != 0)
+            sum += arr[i];
     }
     return sum;
 }
 
-
-Console.Write("Введите число: ");
-int num = int.Parse(Console.ReadLine());
-Console.WriteLine("Сумма цифр: " + SumOfDigits(num));
+Console.WriteLine("Сумма нечётных элементов: " + oddSum(getArray()));
