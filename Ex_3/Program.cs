@@ -1,8 +1,19 @@
-﻿Console.WriteLine("Введите число:");
-int n = int.Parse(Console.ReadLine()!);
+﻿
+int[] array = new int[8];
 
-Console.WriteLine("Число\tКуб");
-for (int i = 1; i <= n; i++)
+for (int i = 0; i < 8; i++)
 {
-    Console.WriteLine("{0}\t{1}", i, i * i * i);
+    array[i] = i;
+}
+
+DisplayArray(array);
+
+
+void DisplayArray(int[] arr)
+{
+    for (int i = 0; i < arr.Length; i++)
+    {
+        Console.Write(arr[i] + " ");
+    }
+    Console.WriteLine();
 }
