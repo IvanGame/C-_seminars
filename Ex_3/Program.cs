@@ -1,13 +1,19 @@
-﻿// Запрашиваем у пользователя число
-Console.WriteLine("Введите число:");
-int num = int.Parse(Console.ReadLine());
+﻿
+int[] array = new int[8];
 
-// Проверяем, является ли число чётным
-if (num % 2 == 0)
+for (int i = 0; i < 8; i++)
 {
-    Console.WriteLine("Число чётное");
+    array[i] = i;
 }
-else
+
+DisplayArray(array);
+
+
+void DisplayArray(int[] arr)
 {
-    Console.WriteLine("Число нечётное");
+    for (int i = 0; i < arr.Length; i++)
+    {
+        Console.Write(arr[i] + " ");
+    }
+    Console.WriteLine();
 }

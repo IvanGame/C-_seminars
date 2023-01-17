@@ -1,24 +1,20 @@
-﻿// Задача 1
-using System;
-
-// Запрашиваем  у пользователя первое число
-Console.WriteLine("Введите первое число:");
-int num1 = int.Parse(Console.ReadLine());
-
-// Запрашиваем  у пользователя второе число
-Console.WriteLine("Введите второе число:");
-int num2 = int.Parse(Console.ReadLine());
-
-// Сравниваем числа
-if (num1 > num2)
+﻿int RaiseToPower(int baseNum, int exponent)
 {
-    Console.WriteLine($"Число {num1} больше числа {num2}");
+    int result = 1;
+    for (int i = 0; i < exponent; i++)
+    {
+        result *= baseNum;
+    }
+    return result;
 }
-else if (num1 < num2)
-{
-    Console.WriteLine($"Число {num2} больше числа {num1}");
-}
-else
-{
-    Console.WriteLine("Числа равны");
-}
+
+int A, B;
+
+Console.Write("Введите A: ");
+A = int.Parse(Console.ReadLine());
+
+Console.Write("Введите B: ");
+B = int.Parse(Console.ReadLine());
+
+int result = RaiseToPower(A, B);
+Console.WriteLine("Результат: " + result);
