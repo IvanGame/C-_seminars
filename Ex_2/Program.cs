@@ -1,26 +1,56 @@
-﻿
-int[] getArray()
+﻿int[] getArray()
 {
     int[] array = new int[10];
     Random rnd = new Random();
 
     for (int i = 0; i < array.Length; i++)
     {
-        array[i] = rnd.Next(1, 101);
+        array[i] = rnd.Next(0, 101);
     }
     return array;
 }
 
-int oddSum(int[] array)
+int[] sortArray(int[] inputArray)
 {
-    int sum = 0;
-
-    for (int i = 0; i < arr.Length; i++)
+    int temp;
+    for (int i = 0; i < inputArray.Length; i++)
     {
-        if (i % 2 != 0)
-            sum += arr[i];
+        for (int j = i + 1; j < inputArray.Length; j++)
+        {
+            if (inputArray[i] > inputArray[j])
+            {
+                temp = inputArray[i];
+                inputArray[i] = inputArray[j];
+                inputArray[j] = temp;
+            }
+        }
     }
-    return sum;
+    return inputArray;
 }
 
-Console.WriteLine("Сумма нечётных элементов: " + oddSum(getArray()));
+int[] inputArray = getArray();
+
+Console.WriteLine("Исходный массив");
+
+foreach (int num in inputArray)
+{
+    Console.Write(num + " ");
+}
+
+Console.WriteLine();
+Console.WriteLine();
+
+Console.WriteLine("Массив после обработки");
+
+foreach (int num in sortArray(inputArray))
+{
+    Console.Write(num + " ");
+}
+
+//Более короткое решение
+// int[] inputArray1 = { 4, 7, 2, 9, 1, 3 };
+// Array.Sort(inputArray1);
+// foreach (int num in inputArray1)
+// {
+//     Console.Write(num + " ");
+// }

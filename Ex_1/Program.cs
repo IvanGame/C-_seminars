@@ -1,26 +1,18 @@
-﻿int evenCount(int[] array)
-{
-    int evenCount = 0;
-        for (int i = 0; i < array.Length; i++)
-        {
-            if (array[i] % 2 == 0)
-            {
-                evenCount++;
-            }
-        }
-    return evenCount;
-}
+﻿int count = 0;
+Console.Write("Введите числа через пробел: ");
+string[] input = Console.ReadLine()!.Split();
 
-int[] getArray()
-{
-    int[] array = new int[10];
-    Random rnd = new Random();
+Console.WriteLine("Чисел больше 0: " + numberOfCount(input));
 
-    for (int i = 0; i < array.Length; i++)
+int numberOfCount(string[] input)
+{
+    for (int i = 0; i < input.Length; i++)
     {
-        array[i] = rnd.Next(100, 1000);
+        int value = int.Parse(input[i]);
+        if (value > 0)
+        {
+            count++;
+        }
     }
-    return array;
+    return count;
 }
-
-Console.WriteLine("Колличество чётных чисел: " + evenCount(getArray()));
