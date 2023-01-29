@@ -1,26 +1,43 @@
-﻿
-int[] getArray()
-{
-    int[] array = new int[10];
-    Random rnd = new Random();
+﻿int[,] array = new int[3, 4];
+Random random = new Random();
 
-    for (int i = 0; i < array.Length; i++)
+// Заполнение массива случайными числами
+for (int i = 0; i < 3; i++)
+{
+    for (int j = 0; j < 4; j++)
     {
-        array[i] = rnd.Next(1, 101);
+        array[i, j] = random.Next(1, 10);
     }
-    return array;
 }
 
-int oddSum(int[] array)
-{
-    int sum = 0;
+Console.WriteLine("Введите число для поиска:");
+int searchNum = int.Parse(Console.ReadLine()!);
+bool found = false;
 
-    for (int i = 0; i < arr.Length; i++)
+for (int i = 0; i < 3; i++)
+{
+    for (int j = 0; j < 3; j++)
     {
-        if (i % 2 != 0)
-            sum += arr[i];
+        if (array[i, j] == searchNum)
+        {
+            found = true;
+            break;
+        }
     }
-    return sum;
 }
 
-Console.WriteLine("Сумма нечётных элементов: " + oddSum(getArray()));
+if (found)
+    Console.WriteLine("Число найдено");
+else
+    Console.WriteLine("Такого числа в массиве нет");
+
+// Вывод массива
+Console.WriteLine("Исходный массив:");
+for (int i = 0; i < 3; i++)
+{
+    for (int j = 0; j < 4; j++)
+    {
+        Console.Write(array[i, j] + " ");
+    }
+    Console.WriteLine();
+}
