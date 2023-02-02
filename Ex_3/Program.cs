@@ -1,34 +1,59 @@
-﻿int[,] array = new int[3, 4];
-Random random = new Random();
+﻿int[,] arr = GetArray(6, 4, 0, 10);
 
-// Заполнение массива случайными числами
-for (int i = 0; i < 3; i++)
+Console.WriteLine("Массив: ");
+PrintArray(arr);
+
+int rowIndex = FindSmallestSumRow(arr);
+
+Console.WriteLine("\nРяд с наименьшей суммой: " + (rowIndex + 1));
+
+int FindSmallestSumRow(int[,] arr)
 {
-    for (int j = 0; j < 4; j++)
+    int rows = arr.GetLength(0);
+    int columns = arr.GetLength(1);
+    int rowIndex = 0;
+    int minSum = int.MaxValue;
+
+    for (int i = 0; i < rows; i++)
     {
-        array[i, j] = random.Next(1, 10);
+        int rowSum = 0;
+        for (int j = 0; j < columns; j++)
+        {
+            rowSum += arr[i, j];
+        }
+        if (rowSum < minSum)
+        {
+            minSum = rowSum;
+            rowIndex = i;
+        }
+    }
+    return rowIndex;
+}
+
+void PrintArray(int[,] arr)
+{
+    int rows = arr.GetLength(0);
+    int columns = arr.GetLength(1);
+
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < columns; j++)
+        {
+            Console.Write(arr[i, j] + " ");
+        }
+        Console.WriteLine();
     }
 }
 
-// Вывод массива
-Console.WriteLine("Исходный массив:");
-for (int i = 0; i < 3; i++)
+int[,] GetArray(int m, int n, int minValue, int maxValue)
 {
-    for (int j = 0; j < 4; j++)
+    int[,] result = new int[m, n];
+    for (int i = 0; i < m; i++)
     {
-        Console.Write(array[i, j] + " ");
+        for (int j = 0; j < n; j++)
+        {
+            result[i, j] = new Random().Next(minValue, maxValue + 1);
+        }
     }
-    Console.WriteLine();
-}
-
-// Нахождение среднего арифметического для каждого столбца
-Console.WriteLine("\nСреднее арифметическое для каждого столбца:");
-for (int j = 0; j < 4; j++)
-{
-    int sum = 0;
-    for (int i = 0; i < 3; i++)
-    {
-        sum += array[i, j];
-    }
-    Console.WriteLine("Столбец {0}: {1}", j + 1, Math.Round((double)sum / 3, 2));
+    return result;
 }
