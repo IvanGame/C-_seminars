@@ -1,60 +1,20 @@
-﻿int[,] arr = GetArray(10, 10, 0, 11);
+﻿
+Console.WriteLine("Введите значение M: ");
+int m = int.Parse(Console.ReadLine()!);
 
-Console.WriteLine("Оригинальный массив: ");
-PrintArray(arr);
+Console.WriteLine("Введите значение N: ");
+int n = int.Parse(Console.ReadLine()!);
 
-SortArray(arr);
+Console.WriteLine("Сумма натуральных чисел между M и N: " + Sum(m, n));
 
-Console.WriteLine("\nОтсортированный массив: ");
-PrintArray(arr);
-
-
-void SortArray(int[,] arr)
+int Sum(int m, int n)
 {
-    int rows = arr.GetLength(0);
-    int columns = arr.GetLength(1);
-
-    for (int i = 0; i < rows; i++)
+    if (m > n)
     {
-        for (int j = 0; j < columns; j++)
-        {
-            for (int k = 0; k < columns - j - 1; k++)
-            {
-                if (arr[i, k] < arr[i, k + 1])
-                {
-                    int temp = arr[i, k];
-                    arr[i, k] = arr[i, k + 1];
-                    arr[i, k + 1] = temp;
-                }
-            }
-        }
+        return 0;
     }
-}
-
-void PrintArray(int[,] arr)
-{
-    int rows = arr.GetLength(0);
-    int columns = arr.GetLength(1);
-
-    for (int i = 0; i < rows; i++)
+    else
     {
-        for (int j = 0; j < columns; j++)
-        {
-            Console.Write(arr[i, j] + " ");
-        }
-        Console.WriteLine();
+        return m + Sum(m + 1, n);
     }
-}
-
-int[,] GetArray(int m, int n, int minValue, int maxValue)
-{
-    int[,] result = new int[m, n];
-    for (int i = 0; i < m; i++)
-    {
-        for (int j = 0; j < n; j++)
-        {
-            result[i, j] = new Random().Next(minValue, maxValue + 1);
-        }
-    }
-    return result;
 }
